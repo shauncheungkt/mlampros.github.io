@@ -677,9 +677,9 @@ which returns only the 'Parks' (of the *category* property name) from the input 
 
 ```R
 
- obj.category obj.location.type obj.location.coordinates1 obj.location.coordinates2               obj.name      dis                       id
-        Parks             Point                  -73.9700                   40.7700           Central Park 1147.422 5985b4d242b2563fb5838f6e
-        Parks             Point                  -73.9928                   40.7193 Sara D. Roosevelt Park 7106.506 5985b4d242b2563fb5838f6f
+obj.category obj.location.type obj.location.coordinates1 obj.location.coordinates2               obj.name      dis                       id
+       Parks             Point                  -73.9700                   40.7700           Central Park 1147.422 5985b4d242b2563fb5838f6e
+       Parks             Point                  -73.9928                   40.7193 Sara D. Roosevelt Park 7106.506 5985b4d242b2563fb5838f6f
 
 ```
 
