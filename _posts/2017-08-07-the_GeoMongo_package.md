@@ -30,6 +30,7 @@ I was able to reproduce the majority of geospatial MongoDB queries ( System Requ
 
 ### queries based on [first example blog post](http://thecodebarbarian.com/80-20-guide-to-mongodb-geospatial-queries)
 
+<br>
 
 When inserting data using the *geomongo* R6 class the user has the option (via the *TYPE_DATA* parameter) to either give a *character string (or vector)*, a *list*, a *file* or a *folder of files* as input. To start with, I'll use the following character strings ( they appear in the first example blog post , the "_id" 's were removed),
 
