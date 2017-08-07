@@ -9,9 +9,9 @@ comments: true
 
 Since I submitted the [*geojsonR* package](https://CRAN.R-project.org/package=geojsonR) I was interested in running geospatial MongoDB queries using GeoJson data. I decided to use PyMongo (through the reticulate package) after opening two Github issues [here](https://github.com/jeroen/mongolite/issues/7) and [here](https://github.com/rstudio/reticulate/issues/81). In my opinion, the PyMongo library is huge and covers a lot of things however, my intention was to be able to run geospatial queries from within R.
 
-##### The GeoMongo package
+### The GeoMongo package
 
-The GeoMongo package allows the user,
+The [*GeoMongo*](https://github.com/mlampros/GeoMongo) package allows the user,
 
 * to insert and query **only** GeoJson data using the **geomongo** R6 class
 * to read data in either json (through the geojsonR package) or BSON format (I'll explain later when BSON is necessary for inserting data)
@@ -28,7 +28,7 @@ I was able to reproduce the majority of geospatial MongoDB queries ( System Requ
 
 <br>
 
-##### queries based on [first example blog post](http://thecodebarbarian.com/80-20-guide-to-mongodb-geospatial-queries)
+### queries based on [first example blog post](http://thecodebarbarian.com/80-20-guide-to-mongodb-geospatial-queries)
 
 
 When inserting data using the *geomongo* R6 class the user has the option (via the *TYPE_DATA* parameter) to either give a *character string (or vector)*, a *list*, a *file* or a *folder of files* as input. To start with, I'll use the following character strings ( they appear in the first example blog post , the "_id" 's were removed),
@@ -395,14 +395,10 @@ res_geoWithin_sph
 
 # example output
 
-   location.type location.coordinates1 location.coordinates2  
-1:         Point               -118.90                 37.61
-2:         Point               -120.24                 39.21
+   location.type location.coordinates1 location.coordinates2           name                       id
+1:         Point               -118.90                 37.61  Mammoth Lakes 5984a0b742b2563fb5838f6b
+2:         Point               -120.24                 39.21   Squaw Valley 5984a0b742b2563fb5838f6a
 
-            name                       id
-   Mammoth Lakes 5984a0b742b2563fb5838f6b
-    Squaw Valley 5984a0b742b2563fb5838f6a
-   
 ```
 
 <br>
@@ -505,22 +501,17 @@ func_quer_geonear
 
 # example output
 
-   distanceFromSF location.type location.coordinates1 location.coordinates2   
-1:       190.8044         Point               -120.24                 39.21  
-2:       201.0443         Point               -118.90                 37.61 
-3:       863.9478         Point               -106.82                 39.18        
-
-           name                           id
-   Squaw Valley     5984a0b742b2563fb5838f6a
-  Mammoth Lakes     5984a0b742b2563fb5838f6b
-          Aspen     5984a0b742b2563fb5838f6c
+   distanceFromSF location.type location.coordinates1 location.coordinates2           name                           id
+1:       190.8044         Point               -120.24                 39.21   Squaw Valley     5984a0b742b2563fb5838f6a
+2:       201.0443         Point               -118.90                 37.61  Mammoth Lakes     5984a0b742b2563fb5838f6b
+3:       863.9478         Point               -106.82                 39.18          Aspen     5984a0b742b2563fb5838f6c
 
 ```
 
 <br><br>
 
 
-##### queries based on the [second (MongoDB) documentation example](https://docs.mongodb.com/manual/geospatial-queries/)
+### queries based on the [second (MongoDB) documentation example](https://docs.mongodb.com/manual/geospatial-queries/)
 
 <br>
 
@@ -572,8 +563,6 @@ doc_FILES = c(place1, place2, place3)
 <br>
 
 ```R
-
-
 
 init$geoInsert(DATA = doc_FILES,               # insert data
                
@@ -688,13 +677,9 @@ which returns only the 'Parks' (of the *category* property name) from the input 
 
 ```R
 
-   obj.category obj.location.type obj.location.coordinates1 obj.location.coordinates2  
-1:        Parks             Point                  -73.9700                   40.7700        
-2:        Parks             Point                  -73.9928                   40.7193 
-
-                 obj.name      dis                       id
-             Central Park 1147.422 5985b4d242b2563fb5838f6e
-   Sara D. Roosevelt Park 7106.506 5985b4d242b2563fb5838f6f
+   obj.category obj.location.type obj.location.coordinates1 obj.location.coordinates2                obj.name      dis                       id
+1:        Parks             Point                  -73.9700                   40.7700            Central Park 1147.422 5985b4d242b2563fb5838f6e
+2:        Parks             Point                  -73.9928                   40.7193  Sara D. Roosevelt Park 7106.506 5985b4d242b2563fb5838f6f
 
 ```
 
@@ -709,7 +694,7 @@ More details about the *geomongo* R6 class and each method (*read_mongo_bson()*,
 
 <br>
 
-##### When to input data in bson rather than in json format (applies to the geomongo R6 class)
+### When to input data in bson rather than in json format (applies to the geomongo R6 class)
 
 <br>
 
