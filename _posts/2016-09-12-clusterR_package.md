@@ -673,7 +673,7 @@ cl_vq_single$medoids
 
 ```
 
-For this data set (5625 observations and 3 columns) the *Clara_Medoids* function returns the same medoids almost four times faster as the *pam* function if OpenMp is available (6 threads).
+For this data set (5625 observations and 3 columns) the *Cluster_Medoids* function returns the same medoids almost four times faster as the *pam* function if OpenMp is available (6 threads).
 
 
 An updated version of the **ClusterR** package can be found in my [Github repository](https://github.com/mlampros/ClusterR) and to report bugs/issues please use the following link, [https://github.com/mlampros/ClusterR/issues](https://github.com/mlampros/ClusterR/issues).
