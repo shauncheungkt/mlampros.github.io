@@ -307,7 +307,7 @@ start = Sys.time()
 
 km_init = KMeans_rcpp(im3, clusters = 5, num_init = 5, max_iters = 100, 
                     
-                    initializer = 'kmeans++', threads = 1, verbose = F)
+                    initializer = 'kmeans++', verbose = F)
 
 end = Sys.time()
 
